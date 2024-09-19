@@ -29,7 +29,7 @@ async function writeToJsonFile(jsonData: User[]) {
     
 }
 
-export async function addUser(user: User) {
+export async function createUser(user: User) {
     const data: User[] = await readJSONFile();
     
     data.push({ name: user.name, email: user.email, password: user.password });

@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { SignUpFormSchema, FormState } from "../lib/definitions";
-import { addUser, getUser } from "../data/users";
+import { createUser, getUser } from "../data/users";
 import { User } from "../data/users";
 
 export async function signupUser(state: FormState, formData: FormData) {
@@ -18,7 +18,7 @@ export async function signupUser(state: FormState, formData: FormData) {
     }
   }
 
-  addUser(validatedFields.data as User)
+  createUser(validatedFields.data as User)
 
   redirect("/home");
 }
