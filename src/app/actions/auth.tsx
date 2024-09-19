@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { SignUpFormSchema, FormState } from "../lib/definitions";
 import { createUser, getUser } from "../data/users";
 import { User } from "../data/users";
+import { deleteSession } from "../lib/session";
 
 export async function signupUser(state: FormState, formData: FormData) {
   const validatedFields = SignUpFormSchema.safeParse({
@@ -19,6 +20,8 @@ export async function signupUser(state: FormState, formData: FormData) {
   }
 
   createUser(validatedFields.data as User)
+
+  //create user session
 
   redirect("/home");
 }
@@ -41,9 +44,12 @@ export async function loginUser(state: FormState, formData: FormData) {
 
   const user = await getUser(userMail, userPassword);
 
+  //create user session
+
   if(user) redirect("/home");
 }
 
-// export async function logoutUser() {
-//   redirect("/auth/login");
-// }
+export async function logoutUser() {
+  deleteSession()
+  redirect("/auth/login");
+}
