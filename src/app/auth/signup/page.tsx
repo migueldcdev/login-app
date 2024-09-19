@@ -22,7 +22,7 @@ export default function Signup() {
           <label htmlFor="password">Password</label>
           <input />
         </div>
-        <button disabled={pending}>Signin</button>
+        <button type="submit" disabled={pending}>Signin</button>
       </form>
     </div>
   );

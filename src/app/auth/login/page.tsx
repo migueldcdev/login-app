@@ -22,7 +22,7 @@ export default function Login() {
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" />
         </div>
-        <button disabled={pending}>Login</button>
+        <button type="submit" disabled={pending}>Login</button>
       </form>
     </div>
   );

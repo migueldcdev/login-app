@@ -7,11 +7,11 @@ type State = {
 };
 
 export async function signupUser(prevState: State, formData: FormData) {
-  redirect("/dashboard");
+  redirect("/home");
 }
 
 export async function loginUser(prevState: State, formData: FormData) {
-  redirect("/dashboard");
+  redirect("/home");
 }
 
 export async function logoutUser() {
