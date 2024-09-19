@@ -15,12 +15,12 @@ export default function Login() {
     <div>
       <form action={formAction}>
         <div>
-          <label htmlFor="email">Email</label>          
-          <input id="email" name="email" placeholder="e.g. yourname@mail.com"/>
+          <label htmlFor="email">Email</label>
+          <input id="email" name="email" placeholder="e.g. yourname@mail.com" />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password"/>
+          <input type="password" id="password" name="password" />
         </div>
         <button disabled={pending}>Login</button>
       </form>
