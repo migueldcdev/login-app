@@ -21,9 +21,16 @@ export default function Login() {
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="********"/>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="********"
+          />
         </div>
-        <button type="submit" disabled={pending}>Login</button>
+        <button type="submit" disabled={pending}>
+          Login
+        </button>
       </form>
       <Link href="/auth/signup">Signup</Link>
     </div>

@@ -1,4 +1,4 @@
-'use server';
+"use server";
 
 import { redirect } from "next/navigation";
 import { SignUpFormSchema, FormState } from "../lib/definitions";
@@ -8,35 +8,34 @@ import { deleteSession } from "../lib/session";
 
 export async function signupUser(state: FormState, formData: FormData) {
   const validatedFields = SignUpFormSchema.safeParse({
-    name: formData.get('name'),
-    email: formData.get('email'),
-    password: formData.get('password'),
-  })
+    name: formData.get("name"),
+    email: formData.get("email"),
+    password: formData.get("password"),
+  });
 
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-    }
+    };
   }
 
-  createUser(validatedFields.data as User)
+  createUser(validatedFields.data as User);
 
   //create user session
 
   redirect("/home");
 }
 
-export async function loginUser(state: FormState, formData: FormData) { 
-  
+export async function loginUser(state: FormState, formData: FormData) {
   const validatedFields = SignUpFormSchema.safeParse({
-    email: formData.get('email'),
-    password: formData.get('password'),
-  })
+    email: formData.get("email"),
+    password: formData.get("password"),
+  });
 
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-    }
+    };
   }
 
   const userMail = validatedFields.data.email;
@@ -46,10 +45,10 @@ export async function loginUser(state: FormState, formData: FormData) {
 
   //create user session
 
-  if(user) redirect("/home");
+  if (user) redirect("/home");
 }
 
 export async function logoutUser() {
-  deleteSession()
+  deleteSession();
   redirect("/auth/login");
 }

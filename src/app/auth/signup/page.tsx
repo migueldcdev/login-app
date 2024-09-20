@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { signupUser } from "@/app/actions/auth";
 import { useFormState, useFormStatus } from "react-dom";
 import Link from "next/link";
@@ -23,10 +23,17 @@ export default function Signup() {
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="********"/>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="********"
+          />
           {state?.errors?.password && <p>{state.errors.password}</p>}
         </div>
-        <button type="submit" disabled={pending}>Signup</button>
+        <button type="submit" disabled={pending}>
+          Signup
+        </button>
       </form>
       <Link href="/auth/login">Login</Link>
     </div>
