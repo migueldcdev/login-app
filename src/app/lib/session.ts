@@ -1,14 +1,16 @@
 "use server";
-import Jwt from "jsonwebtoken";
+import { SignJWT, jwtVerify } from "jose";
 
-const session_key = process.env.SESSION_SECRET as string;
+const session_key = new TextEncoder().encode(process.env.SESSION_SECRET);
 
 export async function createSessionToken(userId: string) {
-  const sessionToken = Jwt.sign({ id: userId }, session_key);
+  const sessionToken = await new SignJWT({ id: userId })
+    .setProtectedHeader({ alg: "HS256" })
+    .sign(session_key);
   return sessionToken;
 }
 
 export async function decodeToken(token: string) {
-  const data = Jwt.verify(token, session_key);
+  const data = await jwtVerify(token, session_key);
   return data;
 }
