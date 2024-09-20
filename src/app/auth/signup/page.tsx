@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useFormState, useFormStatus } from "react-dom";
 import { signupUser } from "@/app/actions/auth";
 import Link from "next/link";

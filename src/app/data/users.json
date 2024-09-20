@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "67bff809-87f9-429f-b7e3-9c7d9dbdeb01",
+    "name": "Miguel",
+    "email": "miguel@championchipnorte.com",
+    "password": "ABC123"
+  }
+]

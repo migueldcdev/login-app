@@ -37,7 +37,7 @@ export async function createUser(user: User) {
     name: user.name,
     email: user.email,
     password: user.password,
-  }
+  };
 
   data.push(newUser);
 

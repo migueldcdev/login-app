@@ -1,11 +1,10 @@
-'use server'
-import  Jwt  from "jsonwebtoken";
+"use server";
+import Jwt from "jsonwebtoken";
 
 const session_key = process.env.SESSION_SECRET as string;
 
-export async function createSessionToken(userId: string) {  
-  const expirationDate = new Date(new Date().getTime() + 5 * 60000).getTime();  
-  const sessionToken = Jwt.sign({id: userId, exp: expirationDate}, session_key);
+export async function createSessionToken(userId: string) {
+  const sessionToken = Jwt.sign({ id: userId }, session_key);
   return sessionToken;
 }
 

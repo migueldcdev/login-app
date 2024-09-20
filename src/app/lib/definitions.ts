@@ -9,7 +9,7 @@ export const SignupFormSchema = z.object({
   password: z.string().trim(),
 });
 
-export const LoginFormSchema = z.object({ 
+export const LoginFormSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }).trim(),
   password: z.string().trim(),
 });
