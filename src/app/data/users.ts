@@ -32,14 +32,18 @@ async function writeToJsonFile(jsonData: User[]) {
 export async function createUser(user: User) {
   const data: User[] = await readJSONFile();
 
-  data.push({
+  const newUser = {
     id: uuidv4(),
     name: user.name,
     email: user.email,
     password: user.password,
-  });
+  }
+
+  data.push(newUser);
 
   await writeToJsonFile(data);
+
+  return newUser;
 }
 
 export async function getUser(email: string, password: string) {
@@ -48,6 +52,8 @@ export async function getUser(email: string, password: string) {
   const user = data.find(
     (user) => user.email === email && user.password === password,
   );
+
+  console.log(user);
 
   return user || null;
 }

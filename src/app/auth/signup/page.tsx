@@ -1,16 +1,16 @@
-"use client";
-import { signupUser } from "@/app/actions/auth";
+'use client';
 import { useFormState, useFormStatus } from "react-dom";
+import { signupUser } from "@/app/actions/auth";
 import Link from "next/link";
 
 export default function Signup() {
-  const [state, formAction] = useFormState(signupUser, undefined);
+  const [state, action] = useFormState(signupUser, undefined);
 
   const { pending } = useFormStatus();
 
   return (
     <div>
-      <form action={formAction}>
+      <form action={action}>
         <div>
           <label htmlFor="name">Name</label>
           <input id="name" name="name" placeholder="e.g. John Doe" />

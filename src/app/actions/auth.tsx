@@ -1,54 +1,62 @@
-"use server";
+'use server';
 
 import { redirect } from "next/navigation";
-import { AuthFormSchema, FormState } from "../lib/definitions";
+import { SignupFormSchema, FormState, LoginFormSchema } from "../lib/definitions";
 import { createUser, getUser } from "../data/users";
 import { User } from "../data/users";
-import { deleteSession } from "../lib/session";
+import { createSessionToken } from "../lib/session";
+import { cookies } from "next/headers";
+
 
 export async function signupUser(state: FormState, formData: FormData) {
-  const validatedFields = AuthFormSchema.safeParse({
+  const validatedFields = SignupFormSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
     password: formData.get("password"),
   });
-
+  
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
 
-  createUser(validatedFields.data as User);
+  const user = await createUser(validatedFields.data as User);  
 
-  //create user session
+  const sessionToken = await createSessionToken(user.id);
+  cookies().set('session', sessionToken);
 
-  redirect("/home");
+  if (sessionToken) {
+    redirect("/home");
+  }   
 }
 
-export async function loginUser(state: FormState, formData: FormData) {
-  const validatedFields = AuthFormSchema.safeParse({
+export async function loginUser(state: FormState, formData: FormData) {  
+  const validatedFields = LoginFormSchema.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
-  });
-
+  }); 
+ 
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
-
+  
   const userMail = validatedFields.data.email;
   const userPassword = validatedFields.data.password;
 
   const user = await getUser(userMail, userPassword);
-
-  //create user session
-
-  if (user) redirect("/home");
+  
+  if (user) {
+    const sessionToken = await createSessionToken(user.id);
+    cookies().set('session', sessionToken);
+    redirect("/home");
+  }
+  
 }
 
 export async function logoutUser() {
-  deleteSession();
-  redirect("/auth/login");
+  cookies().delete('session');
+  redirect("/Signup/login");
 }

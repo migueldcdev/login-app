@@ -1,23 +1,20 @@
-"use client";
+'use client';
 import { useFormState, useFormStatus } from "react-dom";
 import { loginUser } from "@/app/actions/auth";
 import Link from "next/link";
 
-const initialState = {
-  message: "",
-};
-
 export default function Login() {
-  const [state, formAction] = useFormState(loginUser, initialState);
+  const [state, action] = useFormState(loginUser, undefined);
 
   const { pending } = useFormStatus();
 
   return (
     <div>
-      <form action={formAction}>
+      <form action={action}>
         <div>
           <label htmlFor="email">Email</label>
           <input id="email" name="email" placeholder="e.g. email@example.com" />
+          {state?.errors?.email && <p>{state.errors.email}</p>}
         </div>
         <div>
           <label htmlFor="password">Password</label>
@@ -27,6 +24,7 @@ export default function Login() {
             name="password"
             placeholder="********"
           />
+          {state?.errors?.password && <p>{state.errors.password}</p>}
         </div>
         <button type="submit" disabled={pending}>
           Login
