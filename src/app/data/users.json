@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "3d22266f-5d3c-4e91-ab22-6001db63ffd4",
+    "name": "Mike",
+    "email": "mike@mail.com",
+    "password": "abc"
+  }
+]

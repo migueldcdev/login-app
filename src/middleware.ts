@@ -6,7 +6,6 @@ export default async function middleware(request: NextRequest) {
   const sessionToken = cookies().get("session")?.value;
   const { pathname } = new URL(request.url);
 
-  const isAuthPage = pathname === "/auth/login";
   const isHomePage = pathname === "/home";
 
   if (sessionToken) {
@@ -16,7 +15,7 @@ export default async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/home", request.url));
     }
   }
-  if (!sessionToken && !isAuthPage) {
+  if (!sessionToken && isHomePage) {
     return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 }
