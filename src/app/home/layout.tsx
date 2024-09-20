@@ -1,26 +1,25 @@
-"use client"
+"use client";
 
-import React from "react"
-import Link from "next/link"
-import { logoutUser } from "../actions/auth"
+import React from "react";
+import Link from "next/link";
+import { logoutUser } from "../actions/auth";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { LogOut, Settings, User } from "lucide-react"
+} from "@/components/ui/dropdown-menu";
+import { LogOut, Settings, User } from "lucide-react";
 
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
   return (
     <section className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-sm">
@@ -29,20 +28,25 @@ export default function DashboardLayout({
             <div className="flex">
               <Link href="/home" className="flex-shrink-0 flex items-center">
                 <Image
-                  src={'/favicon.ico'}
+                  src={"/favicon.ico"}
                   className="h-8 w-auto"
                   alt="Logo"
                   width={28}
                   height={28}
                 />
-                <span className="ml-2 text-xl font-bold text-slate-500">Home</span>
+                <span className="ml-2 text-xl font-bold text-slate-500">
+                  Home
+                </span>
               </Link>
             </div>
-            <div className="flex items-center">             
+            <div className="flex items-center">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-8 w-8 rounded-full bg-slate-500">
-                   U
+                  <Button
+                    variant="ghost"
+                    className="relative h-8 w-8 rounded-full bg-slate-500"
+                  >
+                    U
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -67,5 +71,5 @@ export default function DashboardLayout({
       </nav>
       <main className="mx-auto py-6 sm:px-6 lg:px-8">{children}</main>
     </section>
-  )
+  );
 }

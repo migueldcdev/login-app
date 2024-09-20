@@ -1,12 +1,16 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { decodeToken } from "./app/lib/session";
+import path from "path";
 
 export default async function middleware(request: NextRequest) {
   const sessionToken = cookies().get("session")?.value;
   const { pathname } = new URL(request.url);
 
   const isHomePage = pathname === "/home";
+
+  if (pathname === "/")
+    return NextResponse.redirect(new URL("/home", request.url));
 
   if (sessionToken) {
     const data = await decodeToken(sessionToken);
