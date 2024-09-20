@@ -51,9 +51,7 @@ export async function getUser(email: string, password: string) {
 
   const user = data.find(
     (user) => user.email === email && user.password === password,
-  );
-
-  console.log(user);
+  );  
 
   return user || null;
 }
