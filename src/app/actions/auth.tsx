@@ -1,13 +1,13 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { SignUpFormSchema, FormState } from "../lib/definitions";
+import { AuthFormSchema, FormState } from "../lib/definitions";
 import { createUser, getUser } from "../data/users";
 import { User } from "../data/users";
 import { deleteSession } from "../lib/session";
 
 export async function signupUser(state: FormState, formData: FormData) {
-  const validatedFields = SignUpFormSchema.safeParse({
+  const validatedFields = AuthFormSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
     password: formData.get("password"),
@@ -27,7 +27,7 @@ export async function signupUser(state: FormState, formData: FormData) {
 }
 
 export async function loginUser(state: FormState, formData: FormData) {
-  const validatedFields = SignUpFormSchema.safeParse({
+  const validatedFields = AuthFormSchema.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
   });
