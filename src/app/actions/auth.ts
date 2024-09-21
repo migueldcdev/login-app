@@ -6,8 +6,8 @@ import {
   FormState,
   LoginFormSchema,
 } from "../lib/definitions";
-import { createUser, getUser } from "../data/users";
-import { User } from "../data/users";
+import { createUser, getUser } from "../data";
+import { User } from "../data";
 import { createSessionToken } from "../lib/session";
 import { cookies } from "next/headers";
 
@@ -49,10 +49,10 @@ export async function loginUser(state: FormState, formData: FormData) {
   const userMail = validatedFields.data.email;
   const userPassword = validatedFields.data.password;
 
-  const user = await getUser(userMail, userPassword);
+  const userId = await getUser(userMail, userPassword);
 
-  if (user) {
-    const sessionToken = await createSessionToken(user.id);
+  if (userId) {
+    const sessionToken = await createSessionToken(userId);
     cookies().set("session", sessionToken, { maxAge: 180, path: "/" });
     redirect("/home");
   }

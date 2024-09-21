@@ -3,7 +3,7 @@ import { SignJWT, jwtVerify } from "jose";
 
 const session_key = new TextEncoder().encode(process.env.SESSION_SECRET);
 
-export async function createSessionToken(userId: string) {
+export async function createSessionToken(userId: number) {
   const sessionToken = await new SignJWT({ id: userId })
     .setProtectedHeader({ alg: "HS256" })
     .sign(session_key);
