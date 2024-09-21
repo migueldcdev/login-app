@@ -6,11 +6,10 @@ export type User = {
 };
 
 export async function createUser(user: User) {
-  return user;  
+  return user;
 }
 
 export async function getUser(email: string, password: string) {
-  console.log(email,password)
-  return 1; 
+  console.log(email, password);
+  return 1;
 }
-

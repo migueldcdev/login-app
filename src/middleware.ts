@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { decodeToken } from "./app/lib/session";
+import { decodeToken } from "./lib/session";
 
 export default async function middleware(request: NextRequest) {
   const sessionToken = cookies().get("session")?.value;

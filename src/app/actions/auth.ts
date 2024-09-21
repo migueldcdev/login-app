@@ -5,10 +5,10 @@ import {
   SignupFormSchema,
   FormState,
   LoginFormSchema,
-} from "../lib/definitions";
+} from "../../lib/definitions";
 import { createUser, getUser } from "../data";
 import { User } from "../data";
-import { createSessionToken } from "../lib/session";
+import { createSessionToken } from "../../lib/session";
 import { cookies } from "next/headers";
 
 export async function signupUser(state: FormState, formData: FormData) {
