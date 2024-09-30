@@ -3,17 +3,6 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { loginUser } from "@/app/actions/auth";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 export default function Login() {
@@ -21,18 +10,17 @@ export default function Login() {
   const { pending } = useFormStatus();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
+      <div className="w-full max-w-md border rounded-xl shadow bg-white">        
+          <div className="text-2xl font-bold text-center mt-6">
             Login
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
+          </div>        
+        <div className="p-6">
           <form action={action}>
             <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
+              <div className="space-y-2 flex flex-col">
+                <label className="text-sm" htmlFor="email">Email</label>
+                <input
+                  className="rounded p-2 border"
                   id="email"
                   name="email"
                   type="email"
@@ -41,15 +29,16 @@ export default function Login() {
                   aria-describedby="email-error"
                 />
                 {state?.errors?.email && (
-                  <Alert variant="destructive" id="email-error">
+                  <div className="flex gap-1 text-red-500">
                     <ExclamationTriangleIcon className="h-4 w-4" />
-                    <AlertDescription>{state.errors.email}</AlertDescription>
-                  </Alert>
+                    <p className="text-sm">{state.errors.email}</p>
+                  </div>
                 )}
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
+              <div className="space-y-2 flex flex-col">
+                <label className="text-sm" htmlFor="password">Password</label>
+                <input
+                  className="rounded p-2 border"
                   type="password"
                   id="password"
                   name="password"
@@ -58,19 +47,23 @@ export default function Login() {
                   aria-describedby="password-error"
                 />
                 {state?.errors?.password && (
-                  <Alert variant="destructive" id="password-error">
+                  <div className="flex gap-1 text-red-500">
                     <ExclamationTriangleIcon className="h-4 w-4" />
-                    <AlertDescription>{state.errors.password}</AlertDescription>
-                  </Alert>
+                    <p className="text-sm">{state.errors.password}</p>
+                  </div>
                 )}
               </div>
-              <Button type="submit" className="w-full" disabled={pending}>
+              <button 
+                type="submit" 
+                className="w-full bg-slate-900 text-white rounded-md p-2 mt-2 hover:bg-slate-800" 
+                disabled={pending}
+              >
                 {pending ? "Logging in..." : "Login"}
-              </Button>
+              </button>
             </div>
           </form>
-        </CardContent>
-        <CardFooter className="flex justify-center">
+        </div>
+        <div className="flex justify-center mb-6">
           <p className="text-sm text-gray-600">
             Do not have an account?{" "}
             <Link
@@ -80,8 +73,8 @@ export default function Login() {
               Sign up
             </Link>
           </p>
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }
