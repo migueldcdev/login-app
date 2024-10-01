@@ -2,9 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 
 import { Dropdown } from "./components/dropdownMenu";
+import { IncardSvg } from "./components/incardSvg";
 
 export default function DashboardLayout({
   children,
@@ -18,16 +19,7 @@ export default function DashboardLayout({
           <div className="flex justify-between h-16">
             <div className="flex">
               <Link href="/home" className="flex-shrink-0 flex items-center">
-                <Image
-                  src={"/favicon.ico"}
-                  className="h-8 w-auto"
-                  alt="Logo"
-                  width={28}
-                  height={28}
-                />
-                <span className="ml-2 text-xl font-bold text-slate-500">
-                  Home
-                </span>
+                <IncardSvg />
               </Link>
             </div>
             <div className="flex items-center">

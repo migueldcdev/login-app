@@ -11,7 +11,7 @@ export async function createSessionToken(userId: number) {
     return sessionToken;
   } catch (err) {
     console.log("Error creating user session token: ", err);
-    throw new Error("An error ocurred while creating user session token");    
+    throw new Error("An error ocurred while creating user session token");
   }
 }
 
@@ -19,9 +19,8 @@ export async function decodeToken(token: string) {
   try {
     const data = await jwtVerify(token, session_key);
     return data;
-  } catch(err) {
+  } catch (err) {
     console.log("Error decoding user session token: ", err);
     throw new Error("An error ocurred while decoding user session token");
   }
- 
 }
