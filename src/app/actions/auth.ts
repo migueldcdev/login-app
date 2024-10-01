@@ -27,9 +27,9 @@ export async function signupUser(state: FormState, formData: FormData) {
   const user = await createUser(validatedFields.data as User);
 
   const sessionToken = await createSessionToken(user.id);
-  cookies().set("session", sessionToken, { maxAge: 180, path: "/" });
 
   if (sessionToken) {
+    cookies().set("session", sessionToken, { maxAge: 180, path: "/" });
     redirect("/home");
   }
 }
@@ -53,8 +53,10 @@ export async function loginUser(state: FormState, formData: FormData) {
 
   if (userId) {
     const sessionToken = await createSessionToken(userId);
-    cookies().set("session", sessionToken, { maxAge: 180, path: "/" });
-    redirect("/home");
+    if (sessionToken) {
+      cookies().set("session", sessionToken, { maxAge: 180, path: "/" });
+      redirect("/home");
+    }
   }
 }
 
