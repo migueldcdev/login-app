@@ -5,6 +5,7 @@ export type User = {
   password: string;
 };
 
+//mocked db actions
 export async function createUser(user: User) {
   return user;
 }
