@@ -3,7 +3,7 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { loginUser } from "@/app/actions/auth";
 import Link from "next/link";
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 export default function Login() {
   const [state, action] = useFormState(loginUser, undefined);
@@ -30,7 +30,7 @@ export default function Login() {
                 />
                 {state?.errors?.email && (
                   <div className="flex gap-1 text-red-500">
-                    <ExclamationTriangleIcon className="h-4 w-4" />
+                    <FaExclamationTriangle className="h-4 w-4" />
                     <p className="text-sm">{state.errors.email}</p>
                   </div>
                 )}
@@ -50,7 +50,7 @@ export default function Login() {
                 />
                 {state?.errors?.password && (
                   <div className="flex gap-1 text-red-500">
-                    <ExclamationTriangleIcon className="h-4 w-4" />
+                    <FaExclamationTriangle className="h-4 w-4" />
                     <p className="text-sm">{state.errors.password}</p>
                   </div>
                 )}
