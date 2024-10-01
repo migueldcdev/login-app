@@ -7,7 +7,7 @@ export const Dropdown = () => {
   const [showDropdownMenu, setShowDropdownMenu] = useState(false);
   const ref = useRef(null);
 
-  useClickOutside(ref, () => handleOpenCloseMenu());
+  useClickOutside(ref, () => {if(showDropdownMenu) handleOpenCloseMenu()});
 
   function handleOpenCloseMenu() {
     setShowDropdownMenu((prev) => !prev);
