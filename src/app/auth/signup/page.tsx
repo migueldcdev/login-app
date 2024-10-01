@@ -3,7 +3,6 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { signupUser } from "@/app/actions/auth";
 import Link from "next/link";
-import { Label } from "@/components/ui/label";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 export default function Signup() {
@@ -12,15 +11,15 @@ export default function Signup() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md border rounded-xl shadow bg-white">       
-          <div className="text-2xl font-bold text-center mt-6">
-            Sign Up
-          </div>       
+      <div className="w-full max-w-md border rounded-xl shadow bg-white">
+        <div className="text-2xl font-bold text-center mt-6">Sign Up</div>
         <div className="p-6">
           <form action={action}>
             <div className="space-y-4">
               <div className="space-y-2 flex flex-col">
-                <Label htmlFor="name">Name</Label>
+                <label className="text-sm" htmlFor="name">
+                  Name
+                </label>
                 <input
                   className="rounded p-2 border"
                   id="name"
@@ -37,7 +36,9 @@ export default function Signup() {
                 )}
               </div>
               <div className="space-y-2 flex flex-col">
-                <Label htmlFor="email">Email</Label>
+                <label className="text-sm" htmlFor="email">
+                  Email
+                </label>
                 <input
                   className="rounded p-2 border"
                   id="email"
@@ -55,7 +56,9 @@ export default function Signup() {
                 )}
               </div>
               <div className="space-y-2 flex flex-col">
-                <Label htmlFor="password">Password</Label>
+                <label className="text-sm" htmlFor="password">
+                  Password
+                </label>
                 <input
                   className="rounded p-2 border"
                   type="password"
@@ -72,10 +75,11 @@ export default function Signup() {
                   </div>
                 )}
               </div>
-              <button 
-                type="submit" 
-                className="w-full bg-slate-900 text-white rounded-md p-2 mt-2 hover:bg-slate-800"  
-                disabled={pending}>
+              <button
+                type="submit"
+                className="w-full bg-slate-900 text-white rounded-md p-2 mt-2 hover:bg-slate-800"
+                disabled={pending}
+              >
                 {pending ? "Signing up..." : "Sign Up"}
               </button>
             </div>

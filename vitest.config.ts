@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "jsdom",
-    exclude: ['**/tests/**', "**/node_modules**/"],   
-  }, 
+    exclude: ["**/tests/**", "**/node_modules**/"],
+  },
   resolve: {
-    alias: [{ find: "@", replacement: resolve(__dirname, "./src") }]
-  }
+    alias: [{ find: "@", replacement: resolve(__dirname, "./src") }],
+  },
 });

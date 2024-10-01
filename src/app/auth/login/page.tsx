@@ -10,15 +10,15 @@ export default function Login() {
   const { pending } = useFormStatus();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md border rounded-xl shadow bg-white">        
-          <div className="text-2xl font-bold text-center mt-6">
-            Login
-          </div>        
+      <div className="w-full max-w-md border rounded-xl shadow bg-white">
+        <div className="text-2xl font-bold text-center mt-6">Login</div>
         <div className="p-6">
           <form action={action}>
             <div className="space-y-4">
               <div className="space-y-2 flex flex-col">
-                <label className="text-sm" htmlFor="email">Email</label>
+                <label className="text-sm" htmlFor="email">
+                  Email
+                </label>
                 <input
                   className="rounded p-2 border"
                   id="email"
@@ -36,7 +36,9 @@ export default function Login() {
                 )}
               </div>
               <div className="space-y-2 flex flex-col">
-                <label className="text-sm" htmlFor="password">Password</label>
+                <label className="text-sm" htmlFor="password">
+                  Password
+                </label>
                 <input
                   className="rounded p-2 border"
                   type="password"
@@ -53,9 +55,9 @@ export default function Login() {
                   </div>
                 )}
               </div>
-              <button 
-                type="submit" 
-                className="w-full bg-slate-900 text-white rounded-md p-2 mt-2 hover:bg-slate-800" 
+              <button
+                type="submit"
+                className="w-full bg-slate-900 text-white rounded-md p-2 mt-2 hover:bg-slate-800"
                 disabled={pending}
               >
                 {pending ? "Logging in..." : "Login"}
