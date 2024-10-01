@@ -20,6 +20,7 @@ export const Dropdown = () => {
           <button
             className="relative h-9 w-9 rounded-full bg-slate-500 flex justify-center"
             onClick={handleOpenCloseMenu}
+            aria-label="Open"
           >
             <FaUserAlt className="text-xl mt-1.5 text-slate-300" />
           </button>
@@ -40,6 +41,7 @@ export const Dropdown = () => {
           <div
             className="flex mt-2 hover:cursor-pointer"
             onClick={() => logoutUser()}
+            aria-label="Logout"
           >
             <FaSignOutAlt className="mr-2 h-4 w-4 text-slate-700 mt-1" />
             <span>Log out</span>
