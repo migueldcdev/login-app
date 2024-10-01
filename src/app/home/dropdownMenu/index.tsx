@@ -3,11 +3,11 @@ import { logoutUser } from "../../actions/auth";
 import { FaUserAlt, FaCog, FaSignOutAlt } from "react-icons/fa";
 
 export const Dropdown = () => {
-  const [showDropdownMenu, setShowDropdownMenu] = useState(false);  
+  const [showDropdownMenu, setShowDropdownMenu] = useState(false);
 
   function handleOpenCloseMenu() {
-    setShowDropdownMenu((prev) => !prev);     
-  };     
+    setShowDropdownMenu((prev) => !prev);
+  }
 
   return (
     <div className="flex flex-col">
