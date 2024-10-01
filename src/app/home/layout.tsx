@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Dropdown } from "./dropdownMenu";
+import { Dropdown } from "./components/dropdownMenu";
 
 export default function DashboardLayout({
   children,

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { logoutUser } from "../../actions/auth";
+import { logoutUser } from "../../../actions/auth";
 import { FaUserAlt, FaCog, FaSignOutAlt } from "react-icons/fa";
 import { useClickOutside } from "@/hooks/useClickOutside";
 
