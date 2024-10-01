@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { logoutUser } from "../../actions/auth";
 import { FaUserAlt, FaCog, FaSignOutAlt } from "react-icons/fa";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 export const Dropdown = () => {
   const [showDropdownMenu, setShowDropdownMenu] = useState(false);
+  const ref = useRef(null);
+
+  useClickOutside(ref, () => handleOpenCloseMenu());
 
   function handleOpenCloseMenu() {
     setShowDropdownMenu((prev) => !prev);
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={ref}>
       <div>
         <div className="flex justify-end ">
           <button
