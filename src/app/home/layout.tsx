@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 
-
 import { Dropdown } from "./components/dropdownMenu";
 import { IncardSvg } from "./components/incardSvg";
 

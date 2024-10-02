@@ -12,6 +12,11 @@ export default function Login() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md border rounded-xl shadow bg-white">
         <div className="text-2xl font-bold text-center mt-6">Login</div>
+        {state?.message && (
+          <div className="text-center mt-4 border mx-auto w-2/3 p-2 rounded border-red-500 text-red-500 bg-red-200">
+            <p>{state.message}</p>
+          </div>
+        )}
         <div className="p-6">
           <form action={action}>
             <div className="space-y-4">

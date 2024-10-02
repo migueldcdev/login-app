@@ -11,6 +11,5 @@ export async function createUser(user: User) {
 }
 
 export async function getUser(email: string, password: string) {
-  console.log(email, password);
-  return 1;
+  if (email === "user@mail.com" && password === "user") return 1;
 }

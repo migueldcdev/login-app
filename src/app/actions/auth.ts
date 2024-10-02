@@ -57,6 +57,10 @@ export async function loginUser(state: FormState, formData: FormData) {
       cookies().set("session", sessionToken, { maxAge: 180, path: "/" });
       redirect("/home");
     }
+  } else {
+    return {
+      message: "Incorrect user name or password",
+    };
   }
 }
 
