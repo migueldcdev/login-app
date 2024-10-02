@@ -7,7 +7,7 @@ export const IncardSvg = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_8051_6994)">
+      <g clipPath="url(#clip0_8051_6994)">
         <path
           d="M50.0855 0.786133H52.3257C52.6829 0.786133 53.0075 0.997885 53.1374 1.3261L60.529 20.2144H57.7802L51.5032 3.62361L45.1506 20.2144H42.4883L50.0855 0.786133Z"
           fill="currentColor"
