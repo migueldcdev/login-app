@@ -10,6 +10,6 @@ export async function createUser(user: User) {
   return user;
 }
 
-export async function getUser(email: string, password: string) {
+export async function getUserId(email: string, password: string) {
   if (email === "user@mail.com" && password === "user") return 1;
 }
