@@ -5,7 +5,7 @@
 First, install the project dependencies:
 
 ```bash
-npm install
+npm install --force
 ```
 
 ### Development
