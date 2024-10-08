@@ -1,5 +1,8 @@
 ## Getting Started
 
+user email: user@mail.com
+user password: user
+
 ### Installation
 
 First, install the project dependencies:
