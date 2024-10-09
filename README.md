@@ -1,7 +1,6 @@
 ## Getting Started
 
-user email: user@mail.com
-user password: user
+For test the app the user email: *user@mail.com* and user password: *user*
 
 ### Installation
 
