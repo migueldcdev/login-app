@@ -9,7 +9,7 @@ First, install the project dependencies:
 
 ```bash
 npm install --force
-```
+(I'm testing latest Next.js stuff so I needed to include React Canary)```
 
 ### Development
 
