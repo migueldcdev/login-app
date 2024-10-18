@@ -1,4 +1,6 @@
-## Getting Started
+## Login app
+
+Technical task for Incard, this is a Next.js app with a Login, Sign up, Home and Error page. The user can create a profile or login with the proper credentials the backend issues a JWT Session Token to persist the session.
 
 For test the app the user email: *user@mail.com* and user password: *user*
 
