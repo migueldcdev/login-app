@@ -1,13 +1,23 @@
-name: E2E Testing
-run-name: ${{ github.actor }} is performing E2E tests
+name: Testing
+run-name: ${{ github.actor }} is performing tests
 on: [push]
 jobs: 
-  Explore-GitHub-Actions:
+  Run-Unit-Tests:
     runs-on: ubuntu-latest
     steps:
-        - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."   
-        - run: echo "This job is now running on a ${{ runner.os }}" 
-        - run: echo "The name of your branch is ${{ github.ref }} and your repo is ${{ github.repository }}"
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."   
+      - run: echo "This job is now running on a ${{ runner.os }}" 
+      - run: echo "The name of your branch is ${{ github.ref }} and your repo is ${{ github.repository }}"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install project dependencies
+        run: npm install --force
+      - name: Run unit tests
+        run: npm run test
+
+  Run-E2E-Tests:
+    runs-on: ubuntu-latest
+    steps:
         - name: Check out repository code
           uses: actions/checkout@v4
         - run: echo "The workflow is now ready to test your code on the runner."
