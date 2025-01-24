@@ -1,5 +1,5 @@
-name: Github Actions
-run-name: ${{ github.actor }} is testing out GitHub Actions
+name: E2E Testing
+run-name: ${{ github.actor }} is performing E2E tests
 on: [push]
 jobs: 
   Explore-GitHub-Actions:
@@ -11,7 +11,10 @@ jobs:
         - name: Check out repository code
           uses: actions/checkout@v4
         - run: echo "The workflow is now ready to test your code on the runner."
-        - name: List files in the repo
-          run: |
-            ls ${{ github.workspace }}
+        - name: Install project dependencies
+          run: npm install --force
+        - run: echo "Installed project dependencies"  
+        - name: Run E2E tests
+          run: npx playwright test 
+        - run: echo "Done E2E testing"           
         - run: echo "This job's status is ${{ job.status }}."  
