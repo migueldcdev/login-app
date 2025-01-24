@@ -14,7 +14,9 @@ jobs:
         - name: Install project dependencies
           run: npm install --force    
         - name: Install Playwright Browsers
-          run: npx playwright install --with-deps     
+          run: npx playwright install --with-deps 
+        - name: Launch development server
+          run: npm run dev      
         - name: Run Playwright tests
           run: npx playwright test                    
         - run: echo "This job's status is ${{ job.status }}."  
