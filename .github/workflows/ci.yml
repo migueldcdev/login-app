@@ -1,7 +1,7 @@
 name: Testing
 run-name: ${{ github.actor }} is performing tests
 on: [push]
-jobs: 
+jobs:
   lint:
     name: 📝 Run Linter
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
         run: npm ci --force
 
       - name: Run Linter
-        run: npm run lint 
+        run: npm run lint
 
   format:
     name: 📑 Run Prettier
@@ -38,12 +38,12 @@ jobs:
         run: npm ci --force
 
       - name: Check code format
-        run: npm run prettier       
+        run: npm run prettier
 
   unit-test:
     name: 🧪 Run unit tests
     runs-on: ubuntu-latest
-    steps:     
+    steps:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Install project dependencies
@@ -55,15 +55,15 @@ jobs:
     name: 🎭 Run e2e tests
     runs-on: ubuntu-latest
     steps:
-        - name: Check out repository code
-          uses: actions/checkout@v4
-        - run: echo "The workflow is now ready to test your code on the runner."
-        - name: Install project dependencies
-          run: npm ci --force    
-        - name: Install Playwright Browsers
-          run: npx playwright install --with-deps 
-        - name: Launch development server
-          run: (npm run dev&)      
-        # - name: Run Playwright tests
-        #   run: npx playwright test                    
-        - run: echo "This job's status is ${{ job.status }}."  
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The workflow is now ready to test your code on the runner."
+      - name: Install project dependencies
+        run: npm ci --force
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Launch development server
+        run: (npm run dev&)
+      # - name: Run Playwright tests
+      #   run: npx playwright test
+      - run: echo "This job's status is ${{ job.status }}."
