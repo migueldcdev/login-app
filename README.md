@@ -9,10 +9,8 @@ For test the app the user email: *user@mail.com* and user password: _user_
 First, install the project dependencies:
 
 ```bash
-npm install --force
+npm install
 ```
-
-(I'm testing latest Next.js stuff so I needed to include React Canary)
 
 ### Development
 
